@@ -1,0 +1,7 @@
+CREATE VIEW buy_per_month as 
+SELECT YEAR(date) as year, MONTH(date) as month, SUM(cost) as total
+FROM orders
+WHERE type = 'C'
+GROUP BY MONTH(date), YEAR(date)
+ORDER BY 1, 2;
+
